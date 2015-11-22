@@ -1,6 +1,6 @@
 "use strict";
 
-window.onload = function() {
+$(document).ready(function() {
 
     // Creates canvas 500 × 500 at 50, 50
 	var paper = new Raphael(50, 50, 500, 500);
@@ -17,7 +17,7 @@ window.onload = function() {
 
 	// Create pathways. M means to start drawing without a visible path at designated x and y coordinates.
 	// l means to start drawing pathways between coordinates, and z means to close the path.
-	//var tetrisPiece = paper.path("M 250 250 l 0 -50 l -50 0 l 0 -50 l -50 0 l 0 50 l -50 0 l 0 50 z");
+	var tetrisPiece = paper.path("M 250 250 l 0 -50 l -50 0 l 0 -50 l -50 0 l 0 50 l -50 0 l 0 50 z");
 	
 	tetrisPiece.attr(
         {
@@ -64,4 +64,4 @@ window.onload = function() {
 	tetrisPiece.animate(spin, 'linear');
 
 
-}
+});
