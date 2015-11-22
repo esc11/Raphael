@@ -17,8 +17,8 @@ window.onload = function() {
 
 	// Create pathways. M means to start drawing without a visible path at designated x and y coordinates.
 	// l means to start drawing pathways between coordinates, and z means to close the path.
-	var tetrisPiece = paper.path("M 250 250 l 0 -50 l -50 0 l 0 -50 l -50 0 l 0 50 l -50 0 l 0 50 z");
-
+	//var tetrisPiece = paper.path("M 250 250 l 0 -50 l -50 0 l 0 -50 l -50 0 l 0 50 l -50 0 l 0 50 z");
+	
 	tetrisPiece.attr(
         {
         	// 90 degree gradient from dark blue to light blue
@@ -47,32 +47,21 @@ window.onload = function() {
 
 	// spin the circle by transforming the shape and rotating it infinitely.
 	// Raphael object instead of an Element
-	var spin = Raphael.animation({transform: "...r360"}, 4000).repeat(Infinity);
-	tetrisPiece.animate(spin, 'linear');
 
-
-
-	// var xCord = 100;
-	// var yCord = 100;
-
-	$(document).keydown(function(event) {
-
-		//console.log(xCord);
-
-       //check which key (keycode) is pressed
+	/*$(document).keydown(function(event) {
+        //check which key (keycode) is pressed
        	if(event.which == 37) { //left arrow
        		tetrisPiece.animate({transform: "t-10,0"}, 'linear', 2000);
-       		//xCord -= 10;
-       		//console.log(xCord);
        	}
        	if(event.which == 39) { //right arrow
-        	//tetrisPiece.animate({transform: "t" + xCord + "," + yCord + "," + (xCord + 10) + "," + yCord}, 'linear', 2000);
         	tetrisPiece.animate({transform: "t10,0"}, 'linear', 2000);
-       		//xCord += 10;
-       		//console.log(xCord);
        	}
        
     });
+*/	
+
+    var spin = Raphael.animation({transform: "...r360"}, 4000).repeat(Infinity);
+	tetrisPiece.animate(spin, 'linear');
 
 
 }
