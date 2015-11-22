@@ -17,18 +17,62 @@ window.onload = function() {
 
 	// Create pathways. M means to start drawing without a visible path at designated x and y coordinates.
 	// l means to start drawing pathways between coordinates, and z means to close the path.
-	var tetronimo = paper.path("M 250 250 l 0 -50 l -50 0 l 0 -50 l -50 0 l 0 50 l -50 0 l 0 50 z");
+	var tetrisPiece = paper.path("M 250 250 l 0 -50 l -50 0 l 0 -50 l -50 0 l 0 50 l -50 0 l 0 50 z");
 
-	tetronimo.attr(
+	tetrisPiece.attr(
         {
+        	// 90 degree gradient from dark blue to light blue
             gradient: '90-#526c7a-#64a0c1',
+            // navy blue border
             stroke: '#3b4449',
+            // width of border
             'stroke-width': 10,
-            'stroke-linejoin': 'round',
-            rotation: -90
+            // round the corners
+            'stroke-linejoin': 'round'
         }
     );
 
+    //tetrisPiece.rotate(-90);
+
+    // bounce easing formula, the default is linear
+    // tetrisPiece.animate({ stroke: '#3b4449'}, 1000, 'bounce', function() {
+    // 	this.rotate(-90);
+    // });
+
+    // tetrisPiece.animate({stroke: '#3b4449'}, 1000, 'bounce', function() {
+    // 	this.animate({
+	   //      stroke: 'purple'
+	   //  }).rotate(-90);
+    // });
+
+	// spin the circle by transforming the shape and rotating it infinitely.
+	// Raphael object instead of an Element
+	var spin = Raphael.animation({transform: "...r360"}, 4000).repeat(Infinity);
+	tetrisPiece.animate(spin, 'linear');
+
+
+
+	// var xCord = 100;
+	// var yCord = 100;
+
+	$(document).keydown(function(event) {
+
+		//console.log(xCord);
+
+       //check which key (keycode) is pressed
+       	if(event.which == 37) { //left arrow
+       		tetrisPiece.animate({transform: "t-10,0"}, 'linear', 2000);
+       		//xCord -= 10;
+       		//console.log(xCord);
+       	}
+       	if(event.which == 39) { //right arrow
+        	//tetrisPiece.animate({transform: "t" + xCord + "," + yCord + "," + (xCord + 10) + "," + yCord}, 'linear', 2000);
+        	tetrisPiece.animate({transform: "t10,0"}, 'linear', 2000);
+       		//xCord += 10;
+       		//console.log(xCord);
+       	}
+       
+    });
 
 
 }
